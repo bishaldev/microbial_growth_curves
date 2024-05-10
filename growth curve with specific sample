@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is your DataFrame containing the data
+df = pd.read_excel("your file path.xlsx")
+
+# Create figure and axis objects with subplots, setting figure size
+fig, ax = plt.subplots(figsize=(5, 5))
+
+# Plot OD vs Time from DataFrame df with black line color
+plt.plot(df['Time(hrs)'], df['O.D.'], color="black", marker='o', markersize=6)
+
+# Markers for specific phases (adjust location as needed)
+ax.plot(28, 2.7, color='red', marker='o', markersize=8)
+ax.text(32, 2.3, 'mid-log \n phase', fontsize=8)
+ax.plot(34.5, 4.9, color='red', marker='o', markersize=8)
+ax.text(38.5, 4.5, 'late-log \n phase', fontsize=8)
+ax.plot(74.5, 6.5, color='red', marker='o', markersize=8)
+ax.text(74.5, 6.9, 'stationary \n phase', fontsize=8)
+
+# Set x-axis label
+ax.set_xlabel("Time(hrs)", fontsize=9)
+
+# Set y-axis label
+ax.set_ylabel("OD$_{600}$", fontsize=9)
+
+# Adjust tick label sizes
+ax.tick_params(axis='both', labelsize=9)
+
+# Save the plot as a file
+fig.savefig('filename.jpg',
+            format='jpeg',
+            dpi=300,
+            bbox_inches='tight')
+
+# Show the plot
+plt.show()
