@@ -1,0 +1,37 @@
+import matplotlib.pyplot as plt
+
+# Create figure and axis objects with subplots
+fig, ax = plt.subplots()
+
+# Make a plot for Cellobiose or component 1
+cb1 = ax.plot(file['Time (hrs)'], file['Cellobiose'], color="green", marker="o", label='Cellobiose')
+
+# Make a plot for Ethanol or component 2
+et1 = ax.plot(file['Time (hrs)'], file['Ethanol'], color="red", marker="o", label='Ethanol')
+
+# Make a plot for Glucoseor component 3
+gl1 = ax.plot(file['Time (hrs)'], file['Glucose'], color="orange", marker="o", label='Glucose')
+
+# Set x-axis label
+ax.set_xlabel("Time (hrs)", fontsize=14)
+
+# Set y-axis label
+ax.set_ylabel("Concentration (mM)", fontsize=14)
+
+# Twin object for two different y-axes on the sample plot
+ax2 = ax.twinx()
+
+# Make a plot with different y-axis using second axis object for OD
+od1 = ax2.plot(file['Time (hrs)'], file['OD'], color="blue", marker="o", label='OD')
+
+# Set y-axis label for OD
+ax2.set_ylabel("O.D.", fontsize=14)
+
+# Combine legends from both axes
+handles, labels = ax.get_legend_handles_labels()
+handles.extend(ax2.get_legend_handles_labels()[0])
+labels.extend(ax2.get_legend_handles_labels()[1])
+ax.legend(handles, labels)
+
+# Show the plot
+plt.show()
