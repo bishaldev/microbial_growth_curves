@@ -1,4 +1,9 @@
+# import libraries
 import matplotlib.pyplot as plt
+import pandas as pd
+
+#import file with your data
+file = pd.read_excel("(your \filepath)") #The following code assumes your dataframe/file has columns Time (hrs), OD, Cellobiose, Ethanol, Glucose, component 4
 
 # Create figure and axis objects with subplots
 fig, ax = plt.subplots()
@@ -11,6 +16,9 @@ et1 = ax.plot(file['Time (hrs)'], file['Ethanol'], color="red", marker="o", labe
 
 # Make a plot for Glucoseor component 3
 gl1 = ax.plot(file['Time (hrs)'], file['Glucose'], color="orange", marker="o", label='Glucose')
+
+# Make a plot for Glucoseor component 4
+cp4 = ax.plot(file['Time (hrs)'], file['component 4'], color="orange", marker="o", label='component 4')
 
 # Set x-axis label
 ax.set_xlabel("Time (hrs)", fontsize=14)
