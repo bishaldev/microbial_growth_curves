@@ -14,11 +14,11 @@ cb1 = ax.plot(file['Time (hrs)'], file['Cellobiose'], color="green", marker="o",
 # Make a plot for Ethanol or component 2
 et1 = ax.plot(file['Time (hrs)'], file['Ethanol'], color="red", marker="o", label='Ethanol')
 
-# Make a plot for Glucoseor component 3
+# Make a plot for Glucose or component 3
 gl1 = ax.plot(file['Time (hrs)'], file['Glucose'], color="orange", marker="o", label='Glucose')
 
-# Make a plot for Glucoseor component 4
-cp4 = ax.plot(file['Time (hrs)'], file['component 4'], color="orange", marker="o", label='component 4')
+# Make a plot for component 4
+cp4 = ax.plot(file['Time (hrs)'], file['component 4'], color="yellow", marker="o", label='component 4')
 
 # Set x-axis label
 ax.set_xlabel("Time (hrs)", fontsize=14)
